@@ -2,6 +2,8 @@
 
 /**
  * @file
+ * A Drupal 7 custom module that is a block view of a
+ * user's username.
  */
 
 
