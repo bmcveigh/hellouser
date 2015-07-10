@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ */
+
+
+/**
+ * Implements hook_block_info().
+ */
+function hellouser_block_info() {
+  $blocks['hellouser'] = array(
+    'info' => t('Hello User'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function hellouser_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'hellouser':
+      $block['subject'] = t('Hello User');
+      // $block['content'] = array(
+      //   '#theme' => 'feed_icon',
+      //   '#title' => t('Syndicate'),
+      // );
+      $block['content'] = hellouser_get_block_text();
+      break;
+  }
+  return $block;
+}
+
+function hellouser_get_block_text() {
+  $output = '';
+
+  global $user;
+  
+  $output .= isset($user->name) ? t('Hello') . ' ' . $user->name . '!' : t('Hello guest!');
+
+  return $output;
+}

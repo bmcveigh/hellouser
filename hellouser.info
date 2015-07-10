@@ -1,0 +1,4 @@
+name = Hello User
+description = A simple block module that welcomes the current user.
+core = 7.x
+package = Pakorasoft
