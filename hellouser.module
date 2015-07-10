@@ -27,10 +27,6 @@ function hellouser_block_view($delta = '') {
   switch ($delta) {
     case 'hellouser':
       $block['subject'] = t('Hello User');
-      // $block['content'] = array(
-      //   '#theme' => 'feed_icon',
-      //   '#title' => t('Syndicate'),
-      // );
       $block['content'] = hellouser_get_block_text();
       break;
   }
